@@ -1,0 +1,18 @@
+@import 'main';
+@import 'main-vars';
+
+.button-container {
+  display: flex;
+  justify-content: end;
+
+  .btn {
+    color: white;
+    background-color: $button-primary;
+    border-color: $button-secondary;
+
+    &:hover {
+      background-color: $button-secondary;
+      border-color: $button-primary;
+    }
+  }
+}

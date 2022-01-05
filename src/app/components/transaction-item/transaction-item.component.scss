@@ -1,0 +1,52 @@
+.component-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.transaction {
+  border-left: .25rem solid;
+
+  &--incoming {
+    border-color: green;
+
+    .transaction__value {
+      color: green;
+    }
+  }
+
+  &--outgoing {
+    border-color: red;
+
+    .transaction__value {
+      color: red;
+    }
+  }
+
+  &__date {
+    align-self: center;
+    margin: 0 1.5rem 0 .5rem;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    .info {
+      &__from {
+        margin: 0;
+      }
+
+      &__type {
+        margin: 0;
+      }
+    }
+  }
+
+  &__value {
+    align-self: center;
+  }
+}

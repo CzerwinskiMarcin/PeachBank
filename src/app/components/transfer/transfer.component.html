@@ -1,0 +1,31 @@
+<app-card>
+  <ng-container header>
+    <img src="" alt="Card icon">
+    <p><strong>Make</strong> Transfer</p>
+  </ng-container>
+
+  <ng-container body>
+    <form [formGroup]="form" (ngSubmit)="handleSubmit($event)">
+      <app-input
+        formControlName="account"
+        label="From Account"
+      ></app-input>
+
+      <app-input
+        formControlName="targetAccount"
+        label="To Account"
+        placeholder="type an account name"
+      ></app-input>
+
+      <app-input
+        formControlName="amount"
+        prefix="$"
+        label="Amount"
+        placeholder="specify the amount"
+      ></app-input>
+      <div class="button-container">
+        <button class="btn" type="submit">Submit</button>
+      </div>
+    </form>
+  </ng-container>
+</app-card>

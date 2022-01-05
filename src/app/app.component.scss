@@ -1,0 +1,65 @@
+@import 'main';
+
+.main-container {
+  height: 100vh;
+  display: grid;
+
+  grid-template-areas:
+    "logo logo logo logo"
+    ". transferControl transactionsList ."
+    ". .               transactionsList ."
+    "footer footer footer footer";
+
+  grid-template-columns: .6fr 1.2fr 1.6fr .6fr;
+  grid-template-rows: auto 1fr 1fr auto;
+  grid-row-gap: 3rem;
+
+  grid-column-gap: 1rem;
+}
+
+.bg-container {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  filter: blur(3px);
+
+  background-image: url("/assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.logo-container {
+  grid-area: logo;
+
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+
+  padding: 1rem;
+
+  .assigment {
+    margin: 0;
+    align-self: center;
+    color: $primary-blue;
+  }
+}
+
+.logo-container, .footer-container {
+  background-color: white;
+}
+
+.transfer-control {
+  grid-area: transferControl;
+}
+
+.transactions-list {
+  grid-area: transactionsList;
+}
+
+.footer-container {
+  grid-area: footer;
+}

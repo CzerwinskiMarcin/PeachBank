@@ -1,0 +1,24 @@
+<label class="component-wrapper">
+  <p class="label">{{label}}</p>
+<div class="input-group mb-3">
+  <div *ngIf="!!prefix || !!materialPrefix" class="input-group-prepend" >
+    <ng-container *ngIf="prefix; else matPref">
+      <span class="input-group-text">{{prefix}}</span>
+    </ng-container>
+    <ng-template #matPref>
+     <span class="material-icons input-group-text">{{materialPrefix}}</span>
+    </ng-template>
+  </div>
+  <input
+    class="form-control"
+    [type]="type"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [value]="value"
+    (change)="onValueChange($event.target.value)"
+  >
+  <div *ngIf="sufix" class="input-group-append">
+    <span class="input-group-text">{{sufix}}</span>
+  </div>
+</div>
+</label>

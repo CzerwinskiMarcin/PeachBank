@@ -1,0 +1,15 @@
+<app-card>
+  <ng-container header>Some header</ng-container>
+  <ng-container body>
+    <app-input
+      materialPrefix="search"
+      placeholder="filter transactions"
+    ></app-input>
+    <ng-container *ngFor="let transaction of transactions; trackBy: trackTransactionBy">
+      <app-item-transaction
+        [transaction]="transaction"
+      ></app-item-transaction>
+      <hr>
+    </ng-container>
+  </ng-container>
+</app-card>
