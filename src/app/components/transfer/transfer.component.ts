@@ -10,7 +10,6 @@ import { NegativeCurrencyPipe } from '../../pipes/negative-currency.pipe';
 })
 export class TransferComponent implements OnInit {
   @Input() account: Account;
-
   @Output() makeTransaction: EventEmitter<{ targetAccount: string, amount: number }> = new EventEmitter();
 
   form: FormGroup;

@@ -3,12 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BbUIModule } from '../bb-ui/bb-ui.module';
-import { TransferComponent } from './components';
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { TransactionItemComponent } from './components/transaction-item/transaction-item.component';
+import { TransactionItemComponent, TransactionListComponent, TransferComponent } from './components';
 import { NegativeCurrencyPipe } from './pipes/negative-currency.pipe';
 
 @NgModule({
