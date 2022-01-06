@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TransactionApiService } from './transaction-api.service';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { ITransaction } from '../interfaces/transaction.interface';
 import { map, tap } from 'rxjs/operators';
 import { Transaction } from '../models/transaction.model';
 
@@ -27,9 +26,19 @@ export class TransactionService {
   getTransactions(): Observable<Array<Transaction>> {
     return this.transactions$.asObservable()
       .pipe(
+        map(transactions => transactions.sort(this.sortTransactionsByDate)),
         map(transactions => transactions.filter(t => t.getMerchantName().toLocaleLowerCase().includes(this.merchantName))),
       )
       ;
+  }
+
+  sortTransactionsByDate(t1: Transaction, t2: Transaction): number {
+    const t1Date = new Date(t1.getDate());
+    const t2Date = new Date(t2.getDate());
+
+    // We can make subtraction of two dates
+    // @ts-ignore
+    return t2Date - t1Date;
   }
 
   filterByMerchantName(merchantName: string): void {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ITransaction } from '../interfaces/transaction.interface';
-import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
 import * as mockData from 'src/assets/transactions.json';
@@ -11,7 +10,7 @@ import * as mockData from 'src/assets/transactions.json';
 export class TransactionApiService {
   api: string;
 
-  constructor(private http: HttpClient) {
+  constructor() {
     this.api = environment.transactionApiUrl;
   }
 

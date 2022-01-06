@@ -8,7 +8,6 @@ import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TransactionListComponent } from './components/transaction-list/transaction-list.component';
 import { CommonModule, CurrencyPipe } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { TransactionItemComponent } from './components/transaction-item/transaction-item.component';
 import { NegativeCurrencyPipe } from './pipes/negative-currency.pipe';
 
@@ -23,7 +22,6 @@ import { NegativeCurrencyPipe } from './pipes/negative-currency.pipe';
   imports: [
     BrowserModule,
     CommonModule,
-    HttpClientModule,
     ReactiveFormsModule,
     BbUIModule,
     SharedModule
