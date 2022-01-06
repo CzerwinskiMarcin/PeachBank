@@ -15,7 +15,7 @@ export class Transaction {
   }
 
   isIncoming(): boolean {
-    return Number(this.transaction.transaction.amountCurrency.amount) > 0;
+    return this.transaction.transaction.creditDebitIndicator === TransactionType.CRDT;
   }
 
   getDate(): string | number {
@@ -34,12 +34,12 @@ export class Transaction {
     const {transaction: {amountCurrency, creditDebitIndicator}} = this.transaction;
 
     switch (creditDebitIndicator) {
-      case TransactionType.CRDT:
+      case TransactionType.DBIT:
         return {
           amount: `-${amountCurrency.amount}`,
           currencyCode: amountCurrency.currencyCode
         };
-      case TransactionType.DBIT:
+      case TransactionType.CRDT:
         return amountCurrency;
       default:
         throw new Error(`unsupported transaction code: ${creditDebitIndicator}`);
