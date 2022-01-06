@@ -8,12 +8,14 @@
   <section class="transfer-control">
     <app-transfer
       [account]="account$ | async"
+      (makeTransaction)="onMakeTransaction($event)"
     ></app-transfer>
   </section>
 
   <section class="transactions-list">
     <app-transaction-list
       [transactions]="transactions$ | async"
+      (filterByMerchantName)="onFilterByMerchantName($event)"
     ></app-transaction-list>
   </section>
 

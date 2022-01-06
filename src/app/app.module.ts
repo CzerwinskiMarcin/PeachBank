@@ -18,7 +18,7 @@ import { NegativeCurrencyPipe } from './pipes/negative-currency.pipe';
     TransferComponent,
     TransactionListComponent,
     TransactionItemComponent,
-    NegativeCurrencyPipe
+    NegativeCurrencyPipe,
   ],
   imports: [
     BrowserModule,

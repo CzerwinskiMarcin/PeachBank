@@ -14,7 +14,7 @@ export class AccountService {
       name: 'My Personal Account',
       amountCurrency: {
         currencyCode: 'EUR',
-        amount: '-5824.76'
+        amount: '5824.76'
       }
     });
   }

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -21,10 +21,12 @@ export class InputComponent implements ControlValueAccessor {
   @Input() sufixUrl: string;
   @Input() label: string;
   @Input() placeholder = '';
+  @Input() error: string;
+  @Input() value = '';
+  @Output() valueChange: EventEmitter<string> = new EventEmitter<string>();
 
   disabled: boolean;
   touched: boolean;
-  value = '';
 
   onChange = (value: string) => {};
   onTouched = () => {};
@@ -49,12 +51,16 @@ export class InputComponent implements ControlValueAccessor {
   }
 
   onValueChange(value: string): void {
-    console.log('Value change', value);
     this.markAsTouched();
+    this.valueChange.emit(value);
     this.onChange(value);
   }
 
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
+  }
+
+  showError(): boolean {
+    return this.error && this.touched;
   }
 }

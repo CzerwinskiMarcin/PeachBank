@@ -4,6 +4,7 @@
     <app-input
       materialPrefix="search"
       placeholder="filter transactions"
+      [formControl]="filter"
     ></app-input>
     <ng-container *ngFor="let transaction of transactions; trackBy: trackTransactionBy">
       <app-item-transaction

@@ -5,14 +5,92 @@
   display: flex;
   justify-content: end;
 
-  .btn {
-    color: white;
-    background-color: $button-primary;
-    border-color: $button-secondary;
+}
+
+.btn {
+  color: white;
+  background-color: $button-primary;
+  border-color: $button-secondary;
+
+  &:hover {
+    background-color: $button-secondary;
+    border-color: $button-primary;
+  }
+
+  &--secondary {
+    color: black;
+    background-color: white;
+    border-color: black;
 
     &:hover {
-      background-color: $button-secondary;
-      border-color: $button-primary;
+      background-color: lightgray;
+      border-color: black;
+    }
+  }
+}
+
+.modal-transfer-dialog {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, .5);
+  //display: none;
+
+  &__body {
+    position: relative;
+    top: 50%;
+    left: 50%;
+
+    max-width: 30rem;
+
+    border-radius: 4px;
+
+    background-color: white;
+
+    transform: translate(-50%, -50%);
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__text {
+      font-size: 1.5rem;
+      margin: 1rem 0 0 0;
+      padding: 0 1rem;
+    }
+
+    &__close {
+      margin: 1rem 1rem 0 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: gray;
+      cursor: pointer;
+    }
+  }
+
+
+  .content {
+    padding: 0 1rem;
+
+    &__point {
+      margin-bottom: .25rem;
+    }
+  }
+
+  .controls {
+    display: flex;
+    justify-content: end;
+
+    padding: 1rem;
+
+    & > * {
+      margin-left: .5rem;
     }
   }
 }

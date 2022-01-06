@@ -1,17 +1,17 @@
 <article
   class="component-wrapper transaction"
-  [class.transaction--incoming]="isIncoming"
-  [class.transaction--outgoing]="!isIncoming"
+  [class.transaction--incoming]="transaction.isIncoming()"
+  [class.transaction--outgoing]="!transaction.isIncoming()"
 >
   <p class="transaction__date">
-    {{_transaction.dates.valueDate | date:'MMM. dd'}}
+    {{transaction.getDate() | date:'MMM. dd'}}
   </p>
   <div class="transaction__info info">
-    <h5 class="info__from">{{_transaction.merchant.name}}</h5>
-    <p class="info__type">{{_transaction.transaction.type}}</p>
+    <h5 class="info__from">{{transaction.getMerchantName()}}</h5>
+    <p class="info__type">{{transaction.getType()}}</p>
   </div>
 
   <div class="transaction__value">
-    <p>{{_transaction.transaction.amountCurrency.amount | negativeCurrency:_transaction.transaction.amountCurrency.currencyCode:'symbol':'1.0-2'}}</p>
+    <p>{{transaction.getAmountCurrency().amount | negativeCurrency:transaction.getAmountCurrency().currencyCode:'symbol':'1.0-2'}}</p>
   </div>
 </article>

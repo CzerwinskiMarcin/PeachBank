@@ -5,7 +5,7 @@
   </ng-container>
 
   <ng-container body>
-    <form [formGroup]="form" (ngSubmit)="handleSubmit($event)">
+    <form [formGroup]="form" (ngSubmit)="handleSubmit()">
       <app-input
         formControlName="account"
         label="From Account"
@@ -15,17 +15,53 @@
         formControlName="targetAccount"
         label="To Account"
         placeholder="type an account name"
+        [error]="getError('targetAccount')"
       ></app-input>
 
       <app-input
         formControlName="amount"
         prefix="$"
         label="Amount"
+        type="number"
         placeholder="specify the amount"
+        [error]="getError('amount')"
       ></app-input>
       <div class="button-container">
-        <button class="btn" type="submit">Submit</button>
+
+        <button
+          class="btn"
+          type="submit"
+          [disabled]="isFormInvalid()"
+        >Submit</button>
       </div>
     </form>
   </ng-container>
 </app-card>
+
+<section class="modal-transfer-dialog" *ngIf="showConfirmation">
+
+  <div class="modal-transfer-dialog__body">
+    <div class="header">
+      <p class="header__text"><strong>Review</strong> transfer</p>
+      <span
+        class="material-icons header__close"
+      (click)="cancelTransaction()">close</span>
+    </div>
+    <hr/>
+
+    <div class="content">
+      <i>Are you ready to send out this transfer?</i>
+      <br><br>
+      <p class="content__point"><strong>It will be send to account:</strong></p>
+      <p>{{form.value.targetAccount}}</p>
+      <p class="content__point"><strong>With the amount of:</strong></p>
+      <p>{{form.value.amount | negativeCurrency:account.amountCurrency.currencyCode:'symbol':'1.0-2'}}</p>
+    </div>
+
+    <div class="controls">
+      <button class="btn btn--secondary" (click)="cancelTransaction()">Cancel</button>
+      <button class="btn" (click)="confirmTransaction()">Send transfer</button>
+    </div>
+  </div>
+
+</section>

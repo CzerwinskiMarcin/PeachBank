@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Transaction } from '../interfaces/transaction.interface';
+import { ITransaction } from '../interfaces/transaction.interface';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -17,7 +17,7 @@ export class TransactionApiService {
 
   // For good practices I should create another layer of abstraction to separate the api response model from application model
   // and some guards for checking if response is supported.
-  getTransactions(): Observable<Array<Transaction>> {
-    return of((mockData.data as any as Array<Transaction>));
+  getTransactions(): Observable<Array<ITransaction>> {
+    return of((mockData.data as any as Array<ITransaction>));
   }
 }

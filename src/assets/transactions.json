@@ -176,7 +176,7 @@
       },
       "transaction": {
         "amountCurrency": {
-          "amount": "-142.95",
+          "amount": "142.95",
           "currencyCode": "EUR"
         },
         "type": "Online Transfer",

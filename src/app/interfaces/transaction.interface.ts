@@ -1,6 +1,6 @@
 import { AmountCurrency } from './amount-currenct.interface';
 
-export interface Transaction {
+export interface ITransaction {
   id: string;
   merchant: {
     name: string,

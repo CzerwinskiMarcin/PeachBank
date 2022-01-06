@@ -17,20 +17,9 @@
   margin: 0 0 .5rem;
 }
 
-.input {
-  &--prefix {
-    &:before {
-      content: attr(data-prefix);
-      @include commonix;
-    }
-  }
-
-  &--sufix {
-    &:after {
-      content: attr(data-sufix);
-      @include commonix;
-    }
-  }
+.error-message {
+  display: flex;
+  justify-content: end;
 }
 
 input:placeholder-shown {
