@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Transaction } from '../../models/transaction.model';
 import { FormControl } from '@angular/forms';
 import { tap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-transaction-list',
@@ -9,14 +10,15 @@ import { tap } from 'rxjs/operators';
   styleUrls: ['./transaction-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TransactionListComponent implements OnInit {
+export class TransactionListComponent implements OnInit, OnDestroy {
   @Input() transactions: Array<Transaction> = [];
   @Output() filterByMerchantName: EventEmitter<string> = new EventEmitter();
 
   filter: FormControl = new FormControl('');
+  filterSub: Subscription;
 
   ngOnInit(): void {
-    this.filter.valueChanges
+    this.filterSub = this.filter.valueChanges
       .pipe(
         tap(name => this.filterByMerchantName.emit(name))
       )
@@ -25,5 +27,9 @@ export class TransactionListComponent implements OnInit {
 
   trackTransactionBy(index: number, transaction: Transaction): string {
     return transaction.getId();
+  }
+
+  ngOnDestroy(): void {
+    this.filterSub.unsubscribe();
   }
 }
