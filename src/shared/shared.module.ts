@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { InputComponent } from './components/input/input.component';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from './components/card/card.component';
+import { InputComponent, CardComponent } from './components';
 
 const COMPONENTS = [
   InputComponent,

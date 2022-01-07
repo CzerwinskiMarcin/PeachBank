@@ -32,8 +32,7 @@ export class TransactionService {
       .pipe(
         map(transactions => transactions.sort(this.sortTransactionsByDate)),
         map(transactions => transactions.filter(t => t.getMerchantName().toLocaleLowerCase().includes(this.merchantName))),
-      )
-      ;
+      );
   }
 
   sortTransactionsByDate(t1: Transaction, t2: Transaction): number {

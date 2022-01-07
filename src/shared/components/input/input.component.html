@@ -1,6 +1,7 @@
 <label class="component-wrapper">
   <p class="label">{{label}}</p>
   <div class="input-group">
+
     <div *ngIf="!!prefix || !!materialPrefix" class="input-group-prepend">
       <ng-container *ngIf="prefix; else matPref">
       <span
@@ -15,6 +16,7 @@
      >{{materialPrefix}}</span>
       </ng-template>
     </div>
+
     <input
       class="form-control"
       [class.is-invalid]="showError()"
@@ -30,6 +32,7 @@
     </div>
 
   </div>
+
   <div *ngIf="showError()" class="error-message">
     <small class="text-danger">
       {{error}}

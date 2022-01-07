@@ -5,10 +5,10 @@
   display: grid;
 
   grid-template-areas:
-    "logo logo logo logo"
-    ". transferControl transactionsList ."
-    ". .               transactionsList ."
-    "footer footer footer footer";
+    "logo   logo            logo              logo"
+    ".      transferControl transactionsList  ."
+    ".      .               transactionsList  ."
+    "footer footer          footer            footer";
 
   grid-template-columns: .6fr 1.2fr 1.6fr .6fr;
   grid-template-rows: auto 1fr 1fr minmax(3rem, auto);
