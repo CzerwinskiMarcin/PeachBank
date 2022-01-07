@@ -20,6 +20,6 @@ export class NegativeCurrencyPipe extends CurrencyPipe {
         return amountCurrency;
       }
 
-      return `${amountCurrency.slice(1,2)} -${amountCurrency.slice(2)}`;
+      return `${amountCurrency.slice(1, 2)} -${amountCurrency.slice(2)}`;
   }
 }

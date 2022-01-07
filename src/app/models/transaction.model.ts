@@ -10,6 +10,25 @@ export class Transaction {
 
   constructor(private transaction: ITransaction) {}
 
+  static createOutgoing(merchantName: string, amountCurrency: AmountCurrency): Transaction {
+    return new Transaction({
+      transaction: {
+        type: '',
+        creditDebitIndicator: TransactionType.DBIT,
+        amountCurrency
+      },
+      dates: {
+        valueDate: Date.now()
+      },
+      merchant: {
+        name: merchantName,
+        accountNumber: ''
+      },
+      id: '',
+      categoryCode: ''
+    });
+  }
+
   getId(): string {
     return this.transaction.id;
   }
@@ -44,24 +63,5 @@ export class Transaction {
       default:
         throw new Error(`unsupported transaction code: ${creditDebitIndicator}`);
     }
-  }
-
-  static createOutgoing(merchantName: string, amountCurrency: AmountCurrency): Transaction {
-    return new Transaction({
-      transaction: {
-        type: '',
-        creditDebitIndicator: TransactionType.DBIT,
-        amountCurrency
-      },
-      dates: {
-        valueDate: Date.now()
-      },
-      merchant: {
-        name: merchantName,
-        accountNumber: ''
-      },
-      id: '',
-      categoryCode: ''
-    });
   }
 }

@@ -15,12 +15,16 @@ export class TransactionService {
     this.fetchTransactions();
   }
 
-  fetchTransactions(): void {
+  private fetchTransactions(): void {
     this.api.getTransactions()
       .pipe(
         map(transactions => transactions.map(t => new Transaction(t))),
         tap(transactions => this.transactions$.next(transactions))
       ).subscribe();
+  }
+
+  private updateTransactions(): void {
+    this.transactions$.next([...this.transactions$.getValue()]);
   }
 
   getTransactions(): Observable<Array<Transaction>> {
@@ -44,10 +48,6 @@ export class TransactionService {
   filterByMerchantName(merchantName: string): void {
     this.merchantName = merchantName.toLocaleLowerCase();
     this.updateTransactions();
-  }
-
-  updateTransactions(): void {
-    this.transactions$.next([...this.transactions$.getValue()]);
   }
 
   addTransaction(transaction: Transaction): void {
