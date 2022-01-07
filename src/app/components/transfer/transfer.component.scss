@@ -3,7 +3,7 @@
 
 .button-container {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
 
 }
 
@@ -26,6 +26,17 @@
       background-color: lightgray;
       border-color: black;
     }
+  }
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.2rem;
+
+  &__text {
+    margin: 0 0 0 .5rem;
   }
 }
 
@@ -85,7 +96,7 @@
 
   .controls {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 
     padding: 1rem;
 

@@ -2,6 +2,21 @@ hr {
   color: lightgray;
 }
 
+.dialog-header {
+  display: flex;
+  align-items: center;
+
+  font-size: 1.2rem;
+
+  * {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-left: .5rem;
+    }
+  }
+}
+
 app-input {
   position: sticky;
   top: .1rem;
